@@ -10,10 +10,10 @@ clc
 t = 0:1e-3:2;
 
 % Coefficiente di attrito
-ka = 25; % Poli reali distinti
+% ka = 25; % Poli reali distinti
 % ka = 20; % Poli reali coincidenti
 % ka = 10; % Poli complessi coniugati
-% ka = 0.1; % Oscillazioni (quasi) persistenti
+ka = 0.1; % Oscillazioni (quasi) persistenti
 
 % Matrici A, B, C, D
 A = [   0   1
@@ -50,7 +50,8 @@ ylabel('x')
 sys = ss(A,B,eye(2),0);
 x_free = lsim(sys,u,t,x0);
 
-figure
+% figure
+hold on
 plot(t,x_free)
 title('Evoluzione libera - numerica')
 xlabel('t')
@@ -82,10 +83,11 @@ legend('x','v')
 %% Calcolo risposta forzata - lsim
 
 sys = ss(A,B,eye(2),0);
+u = 0*t + 10;
 x_forced = lsim(sys,u,t,x0);
 
-% figure
-hold on
+figure
+% hold on
 plot(t,x_forced)
 title('Evoluzione forzata - numerica')
 xlabel('t')

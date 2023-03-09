@@ -19,14 +19,15 @@ w_nat = sqrt(g/l);
 % Stato iniziale
 theta0 = 0.05*pi;
 % theta0 = 0.1*pi;
-% theta0 = 0.99*pi;
+% theta0 = 0.9*pi;
 w0 = 0;
 
 % Ingresso
 t = (1:1e-1:10)';
+w = 1;
 u = 0*t;
 % u = .5*ones(size(t));
-% u = .5*square(2*w*t);
+u = .5*square(2*w*t);
 % u = .5*sin(2*w*t);
 
 %% Simulazione
